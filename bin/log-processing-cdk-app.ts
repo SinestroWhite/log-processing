@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
-import { LogProcessingCdkAppStack } from '../lib/log-processing-cdk-app-stack';
+import { LogProcessingStack } from '../lib/log-processing-cdk-app-stack';
 
 const app = new cdk.App();
-new LogProcessingCdkAppStack(app, 'LogProcessingStack', {
+new LogProcessingStack(app, 'LogProcessingStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
