@@ -126,8 +126,8 @@ export class LogProcessingStack extends Stack {
       type: "Spark",
       releaseLabel: "emr-7.8.0",
       maximumCapacity: {
-        cpu: "4 vCPU", // At 200 TBs/day it should be 2000 vCPUs
-        memory: "16 GB", // At 200 TBs/day it should be 4100 GBs
+        cpu: "400 vCPU", // At 200 TBs/day it should be 2000 vCPUs
+        memory: "3000 GB", // At 200 TBs/day it should be 4100 GBs
       },
       autoStartConfiguration: {
         enabled: true,
@@ -138,12 +138,6 @@ export class LogProcessingStack extends Stack {
       },
     });
 
-    const emrLogGroup = new logs.LogGroup(this, 'EmrDrainLogGroup', {
-      logGroupName: '/emr-serverless/drain-jobs',
-      retention: logs.RetentionDays.ONE_MONTH,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-    });
-
     const emrCodeBucket = new s3.Bucket(this, 'EMRCodeBucket', {
       bucketName: `${this.stackName.toLowerCase()}-code-bucket`,
       encryption: s3.BucketEncryption.S3_MANAGED,
@@ -151,12 +145,12 @@ export class LogProcessingStack extends Stack {
       autoDeleteObjects: true,
     });
 
-    // const emrCodeDeployment = new s3deploy.BucketDeployment(this, 'DeployJobCode', {
-    //   destinationBucket: emrCodeBucket,
-    //   sources: [
-    //     s3deploy.Source.asset(path.join(__dirname, '..', 'spark-jobs'))
-    //   ],
-    // });
+    const emrCodeDeployment = new s3deploy.BucketDeployment(this, 'DeployJobCode', {
+      destinationBucket: emrCodeBucket,
+      sources: [
+        s3deploy.Source.asset(path.join(__dirname, '..', 'spark-jobs'))
+      ],
+    });
 
     const jobRole = new iam.Role(this, 'EmrJobRole', {
       assumedBy: new iam.ServicePrincipal('emr-serverless.amazonaws.com'),
