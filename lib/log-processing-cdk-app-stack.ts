@@ -86,10 +86,29 @@ export class LogProcessingStack extends Stack {
       managedPolicies: [iam.ManagedPolicy.fromAwsManagedPolicyName("AmazonS3FullAccess")],
     })
 
+    const firehoseLogGroup = new logs.LogGroup(this, 'FirehoseLogGroup', {
+      logGroupName: '/aws/kinesisfirehose/log-ingestion',
+      retention: logs.RetentionDays.ONE_MONTH,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
+
+    firehoseRole.addToPolicy(new iam.PolicyStatement({
+      actions: [
+        'logs:PutLogEvents',
+        'logs:CreateLogStream',
+      ],
+      resources: [firehoseLogGroup.logGroupArn],
+    }));
+
     const logFirehose = new kinesisFirehose.CfnDeliveryStream(this, "LogFirehose", {
       deliveryStreamName: `${this.stackName.toLowerCase()}-log-ingestion`,
       deliveryStreamType: "DirectPut",
       extendedS3DestinationConfiguration: {
+        cloudWatchLoggingOptions: {
+          enabled: true,
+          logGroupName: firehoseLogGroup.logGroupName,
+          logStreamName: 'S3Delivery',
+        },
         bucketArn: rawLogsBucket.bucketArn,
         prefix: '!{timestamp:yyyy/MM/dd}/',
         errorOutputPrefix: "errors/!{firehose:error-output-type}/!{timestamp:yyyy/MM/dd}/",
@@ -105,7 +124,7 @@ export class LogProcessingStack extends Stack {
     const emrApplication = new emrserverless.CfnApplication(this, "EMRApplication", {
       name: "log-template-mining",
       type: "Spark",
-      releaseLabel: "emr-6.15.0",
+      releaseLabel: "emr-7.8.0",
       maximumCapacity: {
         cpu: "4 vCPU", // At 200 TBs/day it should be 2000 vCPUs
         memory: "16 GB", // At 200 TBs/day it should be 4100 GBs
@@ -132,61 +151,66 @@ export class LogProcessingStack extends Stack {
       autoDeleteObjects: true,
     });
 
-    const emrCodeDeployment = new s3deploy.BucketDeployment(this, 'DeployJobCode', {
-      destinationBucket: emrCodeBucket,
-      sources: [s3deploy.Source.asset(path.join(__dirname, '..', 'spark-jobs', 'pyspark_venv.zip'))],
-    });
+    // const emrCodeDeployment = new s3deploy.BucketDeployment(this, 'DeployJobCode', {
+    //   destinationBucket: emrCodeBucket,
+    //   sources: [
+    //     s3deploy.Source.asset(path.join(__dirname, '..', 'spark-jobs'))
+    //   ],
+    // });
 
     const jobRole = new iam.Role(this, 'EmrJobRole', {
       assumedBy: new iam.ServicePrincipal('emr-serverless.amazonaws.com'),
     });
     rawLogsBucket.grantRead(jobRole);
     processedBucket.grantReadWrite(jobRole);
-    emrLogGroup.grantWrite(jobRole);
     emrCodeBucket.grantRead(jobRole);
 
     // EventBridge rule to start the job daily at 02:00 UTC
     // At 200TBs/day it should run every 25 minutes
-    const emrRule = new events.Rule(this, 'DailyDrain', {
-      schedule: events.Schedule.cron({ minute: '0', hour: '2' }),
-      targets: [
-        new targets.AwsApi({
-          service: 'EMR-Serverless',
-          action: 'startJobRun',
-          policyStatement: new iam.PolicyStatement({
-            actions: ['emr-serverless:StartJobRun'],
-            resources: [`${emrApplication.attrArn}/*`],
-          }),
-          parameters: {
-            applicationId: emrApplication.ref,
-            executionRoleArn: jobRole.roleArn,
-            jobDriver: {
-              sparkSubmit: {
-                entryPoint: `s3://${emrCodeBucket.bucketName}/`,
-                entryPointArguments: [
-                  `--input-prefix=s3://${rawLogsBucket.bucketName}/`,
-                  `--output-prefix=s3://${processedBucket.bucketName}/`,
-                  '--partitions', '4000', // At 200 TBs/day it should be 8000 partitions (partitions ≈ 2 × vCPU)
-                ],
-                sparkSubmitParameters:
-                    '--conf spark.executor.memoryOverhead=1G ' +
-                    '--conf spark.serializer=org.apache.spark.serializer.KryoSerializer',
-              },
-            },
-            configurationOverrides: {
-              monitoringConfiguration: {
-                cloudWatchLoggingConfiguration: {
-                  enabled: true,
-                  logGroupName: emrLogGroup.logGroupName,
-                  logStreamNamePrefix: 'run',
-                },
-              },
-            },
-          },
-        }),
-      ],
-    });
-    emrRule.node.addDependency(emrCodeDeployment);
+    // const emrRule = new events.Rule(this, 'DailyDrain', {
+    //   schedule: events.Schedule.rate(cdk.Duration.minutes(5)), //.cron({ minute: '0', hour: '2' }),
+    //   targets: [
+    //     new targets.AwsApi({
+    //       service: 'EMR-Serverless',
+    //       action: 'startJobRun',
+    //       policyStatement: new iam.PolicyStatement({
+    //         actions: ['emr-serverless:StartJobRun'],
+    //         resources: [`${emrApplication.attrArn}/*`],
+    //       }),
+    //       parameters: {
+    //         applicationId: emrApplication.ref,
+    //         executionRoleArn: jobRole.roleArn,
+    //         jobDriver: {
+    //           sparkSubmit: {
+    //             entryPoint: `s3://${emrCodeBucket.bucketName}/darin3-process.py`,
+    //             entryPointArguments: [
+    //               `s3a://${rawLogsBucket.bucketName}/`,
+    //               `s3a://${processedBucket.bucketName}/`,
+    //               // '--partitions', '4000', // At 200 TBs/day it should be 8000 partitions (partitions ≈ 2 × vCPU)
+    //             ],
+    //             sparkSubmitParameters:
+    //                 // '--conf spark.executor.memoryOverhead=1G ' +
+    //                 // '--conf spark.serializer=org.apache.spark.serializer.KryoSerializer',
+    //               `--conf spark.archives=s3://${emrCodeBucket.bucketName}/pyspark_venv.zip#environment ` +
+    //                 '--conf spark.emr-serverless.driverEnv.PYSPARK_DRIVER_PYTHON=./environment/bin/python ' +
+    //                 '--conf spark.emr-serverless.driverEnv.PYSPARK_PYTHON=./environment/bin/python ' +
+    //                 '--conf spark.executorEnv.PYSPARK_PYTHON=./environment/bin/python'
+    //           },
+    //         },
+    //         configurationOverrides: {
+    //           monitoringConfiguration: {
+    //             cloudWatchLoggingConfiguration: {
+    //               enabled: true,
+    //               logGroupName: emrLogGroup.logGroupName,
+    //               logStreamNamePrefix: 'run',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     }),
+    //   ],
+    // });
+    // emrRule.node.addDependency(emrCodeDeployment);
 
     //
     // // Glue Database and Tables
