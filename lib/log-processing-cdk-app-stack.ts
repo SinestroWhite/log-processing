@@ -10,6 +10,7 @@ import * as iam from "aws-cdk-lib/aws-iam"
 import * as logs from "aws-cdk-lib/aws-logs"
 import * as events from "aws-cdk-lib/aws-events"
 import * as targets from 'aws-cdk-lib/aws-events-targets';
+import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import type { Construct } from "constructs"
 import {Stack} from "aws-cdk-lib";
 import * as s3deploy from "aws-cdk-lib/aws-s3-deployment";
@@ -121,6 +122,24 @@ export class LogProcessingStack extends Stack {
       },
     });
 
+    const vpc = new ec2.Vpc(this, 'PublicOnlyVPC', {
+      maxAzs: 2,
+      subnetConfiguration: [
+        {
+          name: 'PublicSubnet',
+          subnetType: ec2.SubnetType.PUBLIC,
+          cidrMask: 24,
+        },
+      ],
+      natGateways: 0,
+    });
+
+    const sg = new ec2.SecurityGroup(this, 'EMRSecurityGroup', {
+      vpc,
+      description: 'Allow internet access from EMR Serverless',
+      allowAllOutbound: true,
+    });
+
     const emrApplication = new emrserverless.CfnApplication(this, "EMRApplication", {
       name: "log-template-mining",
       type: "Spark",
@@ -135,6 +154,12 @@ export class LogProcessingStack extends Stack {
       autoStopConfiguration: {
         enabled: true,
         idleTimeoutMinutes: 15,
+      },
+      networkConfiguration: {
+        subnetIds: vpc.selectSubnets({
+          subnetType: ec2.SubnetType.PUBLIC,
+        }).subnetIds,
+        securityGroupIds: [sg.securityGroupId]
       },
     });
 
@@ -158,6 +183,19 @@ export class LogProcessingStack extends Stack {
     rawLogsBucket.grantRead(jobRole);
     processedBucket.grantReadWrite(jobRole);
     emrCodeBucket.grantRead(jobRole);
+
+    jobRole.addToPolicy(new iam.PolicyStatement({
+      actions: [
+        "bedrock:InvokeModel",
+        // If you plan to use streaming models:
+        // "bedrock:InvokeModelWithResponseStream"
+      ],
+      resources: [
+        "*", // or restrict to specific model ARN if you want tighter security
+      ]
+    }));
+
+
 
     // EventBridge rule to start the job daily at 02:00 UTC
     // At 200TBs/day it should run every 25 minutes

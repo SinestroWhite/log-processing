@@ -1,0 +1,210 @@
+{"ts": "2025-06-03T09:00:00.000Z", "lvl": "INFO", "service": "checkout", "event": "checkout_started", "request_id": "r-07dd", "user_id": "u-1009", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:00:01.310Z", "lvl": "WARN", "service": "order", "event": "order_created", "request_id": "r-0863", "user_id": "u-1005", "ip": "192.0.2.12", "order_id": "o-90025", "cart_value": 246.43, "currency": "USD"}
+{"ts": "2025-06-03T09:00:04.549Z", "lvl": "WARN", "service": "search", "event": "autosuggest", "request_id": "r-0811", "user_id": "u-1019", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:07.083Z", "lvl": "ERROR", "service": "cart", "event": "add_to_cart", "request_id": "r-0827", "ip": "198.51.100.8", "sku": "SKU-100044", "qty": 3, "cart_value": 157.02}
+{"ts": "2025-06-03T09:00:08.113Z", "lvl": "INFO", "service": "alert", "event": "", "request_id": "r-0892", "user_id": "u-1004", "ip": "198.51.100.8", "metric": "payment_latency_p95", "value": 787, "threshold": 600}
+{"ts": "2025-06-03T09:00:08.199Z", "lvl": "WARN", "service": "auth", "event": "password_reset_requested", "request_id": "r-07d8", "user_id": "u-1002"}
+{"ts": "2025-06-03T09:00:13.927Z", "lvl": "WARN", "service": "payment", "event": "payment_retry", "request_id": "r-0861", "user_id": "u-1002", "ip": "198.51.100.8", "provider": "stripe", "attempt": 3, "reason": "rate_limit"}
+{"ts": "2025-06-03T09:00:16.672Z", "lvl": "ERROR", "service": "shipment", "event": "label_printed", "request_id": "r-0859", "user_id": "u-1016", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:00:18.286Z", "lvl": "INFO", "service": "search", "event": "search_results", "request_id": "r-0821", "user_id": "u-1016"}
+{"ts": "2025-06-03T09:00:07.668Z", "lvl": "DEBUG", "service": "alert", "event": "anomaly_detected", "request_id": "r-084d", "user_id": "u-1011", "ip": "192.0.2.12", "metric": "payment_latency_p95", "value": 877, "threshold": 600}
+{"ts": "2025-06-03T09:00:19.563Z", "lvl": "WARN", "service": "auth", "event": "login_success", "request_id": "r-07e1", "user_id": "u-1005"}
+{"ts": "2025-06-03T09:00:16.777Z", "lvl": "DEBUG", "service": "auth", "event": "login_fail", "request_id": "r-07d8", "user_id": "u-1018", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:00:16.279Z", "lvl": "DEBUG", "service": "checkout", "event": "checkout_started", "request_id": "r-07e3", "user_id": "u-1012", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:26.722Z", "lvl": "DEBUG", "service": "shipment", "event": "label_printed", "request_id": "r-0881", "user_id": "u-1008", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:00:34.617Z", "lvl": "DEBUG", "service": "catalog", "event": "exception", "request_id": "r-0813", "user_id": "u-1001", "ip": "203.0.113.44", "stack": "java.lang.IllegalStateException: Test exception\n\tat com.store.module.Class.method(Class.scala:42)"}
+{"ts": "2025-06-03T09:00:29.461Z", "lvl": "WARN", "service": "payment", "event": "payment_retry", "request_id": "r-07ef", "user_id": "u-1016", "ip": "192.0.2.12", "provider": "stripe", "attempt": 1, "reason": "insufficient_funds"}
+{"ts": "2025-06-03T09:00:16.045Z", "lvl": "INFO", "service": "search", "event": "autosuggest", "request_id": "r-082e", "user_id": "u-1014", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:00:14.559Z", "lvl": "DEBUG", "service": "catalog", "event": "exception", "request_id": "r-0897", "user_id": "u-1017", "stack": "java.lang.IllegalStateException: Test exception\n\tat com.store.module.Class.method(Class.scala:42)"}
+{"ts": "2025-06-03T09:00:16.933Z", "lvl": "ERROR", "service": "kpi", "event": "daily_rollup", "request_id": "r-085b", "user_id": "u-1005", "orders_today": 145854, "gmv_usd": 43544466.6, "timestamp": "2025-06-03T09:00:16.933Z"}
+{"ts": "2025-06-03T09:00:31.831Z", "lvl": "INFO", "service": "cart", "event": "remove_from_cart", "request_id": "r-0852", "user_id": "u-1015", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:27.250Z", "lvl": "DEBUG", "service": "auth", "event": "login_success", "request_id": "r-0856", "user_id": "u-1003"}
+{"ts": "2025-06-03T09:00:46.348Z", "lvl": "WARN", "service": "kpi", "event": "daily_rollup", "request_id": "r-0807", "user_id": "u-1013", "ip": "203.0.113.44", "orders_today": 141287, "gmv_usd": 46532466.47, "timestamp": "2025-06-03T09:00:46.348Z"}
+{"ts": "2025-06-03T09:00:42.092Z", "lvl": "WARN", "service": "auth", "event": "login_fail", "request_id": "r-0832", "user_id": "u-1018", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:00:16.928Z", "lvl": "DEBUG", "service": "auth", "event": "password_reset_requested", "request_id": "r-085c", "user_id": "u-1014"}
+{"ts": "2025-06-03T09:00:27.436Z", "lvl": "WARN", "service": "auth", "event": "login_fail", "request_id": "r-0892", "user_id": "u-1011"}
+{"ts": "2025-06-03T09:00:38.245Z", "lvl": "DEBUG", "service": "checkout", "event": "checkout_started", "request_id": "r-084b", "user_id": "u-1019", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:00:19.193Z", "lvl": "WARN", "service": "cart", "event": "remove_from_cart", "request_id": "r-0855", "user_id": "u-1008", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:15.058Z", "lvl": "INFO", "service": "kpi", "event": "daily_rollup", "request_id": "r-07dc", "user_id": "u-1014", "orders_today": 175638, "gmv_usd": 13107321.29, "timestamp": "2025-06-03T09:00:15.058Z"}
+{"ts": "2025-06-03T09:01:01.080Z", "lvl": "ERROR", "service": "payment", "event": "payment_failed", "request_id": "r-0870", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:01:00.377Z", "lvl": "ERROR", "service": "shipment", "event": "label_printed", "request_id": "r-086b", "user_id": "u-1003"}
+{"ts": "2025-06-03T09:00:55.846Z", "lvl": "WARN", "service": "auth", "event": "login_fail", "request_id": "r-082f", "user_id": "u-1012", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:00:42.476Z", "lvl": "inf0", "service": "catalog", "event": "product_view", "request_id": "r-07d2", "user_id": "u-1014", "ip": "10.0.0.5", "sku": "SKU-100079", "latency_ms": 39}
+{"ts": "2025-06-03T09:00:55.454Z", "lvl": "DEBUG", "service": "shipment", "event": "shipment_dispatched", "request_id": "r-07dd", "user_id": "u-1009", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:00:55.748Z", "lvl": "INFO", "service": "checkout", "event": "checkout_started", "request_id": "r-0872", "user_id": "u-1012", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:51.625Z", "lvl": "WARN", "service": "payment", "event": "payment_authorized", "request_id": "r-080b", "user_id": "u-1018", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:39.909Z", "lvl": "WARN", "service": "analytics", "event": "user_session_summary", "request_id": "r-0822", "user_id": "u-1012", "duration_sec": 97, "pages_visited": 6, "conversion": true}
+{"ts": "2025-06-03T09:00:39.752Z", "lvl": "DEBUG", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-086a"}
+{"ts": "2025-06-03T09:01:06.896Z", "lvl": "DEBUG", "service": "auth", "event": "password_reset_requested", "request_id": "r-0877", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:46.782Z", "lvl": "ERROR", "service": "notification", "event": "delivery_failure", "request_id": "r-085e", "user_id": "u-1017", "ip": "203.0.113.44", "channel": "email", "reason": "SMTP 550 - Invalid address"}
+{"ts": "2025-06-03T09:01:05.802Z", "lvl": "DEBUG", "service": "payment", "event": "payment_failed", "request_id": "r-0859", "user_id": "u-1001", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:00:25.622Z", "lvl": "DEBUG", "service": "inventory", "event": "stock_unavailable", "request_id": "r-0827", "user_id": "u-1010", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:00:43.250Z", "lvl": "WARN", "service": "alert", "event": "anomaly_detected", "request_id": "r-082d", "user_id": "u-1016", "ip": "10.0.0.5", "metric": "payment_latency_p95", "value": 723, "threshold": 600}
+{"ts": "2025-06-03T09:01:26.649Z", "lvl": "WARN", "service": "user", "event": "preferences_saved", "request_id": "r-0807", "user_id": "u-1000", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:58.256Z", "lvl": "DEBUG", "service": "shipment", "event": "label_printed", "request_id": "r-0804", "user_id": "u-1011"}
+{"ts": "2025-06-03T09:01:34.389Z", "lvl": "DEBUG", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-0800", "user_id": "u-1011", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:28.252Z", "lvl": "DEBUG", "service": "cart", "event": "add_to_cart", "request_id": "r-07ef", "user_id": "u-1007", "ip": "10.0.0.5", "sku": "SKU-100056", "qty": 1, "cart_value": 107.44}
+{"ts": "2025-06-03T09:01:31.659Z", "lvl": "WARN", "service": "search", "event": "autosuggest", "request_id": "r-086f", "user_id": "u-1017", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:00:34.403Z", "lvl": "DEBUG", "service": "kpi", "event": "daily_rollup", "request_id": "r-081f", "orders_today": 110765, "gmv_usd": 42102865.14, "timestamp": "2025-06-03T09:00:34.403Z"}
+{"ts": "2025-06-03T09:00:58.307Z", "lvl": "WARN", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-0880", "user_id": "u-1003", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:00:58.180Z", "lvl": "DEBUG", "service": "order", "event": "order_created", "request_id": "r-0825", "ip": "198.51.100.8", "order_id": "o-90085", "cart_value": 91.61, "currency": "USD"}
+{"ts": "2025-06-03T09:00:52.982Z", "lvl": "DEBUG", "service": "inventory", "event": "stock_unavailable", "request_id": "r-0822", "user_id": "u-1004", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:01:11.780Z", "lvl": "INFO", "service": "notification", "event": "delivery_failure", "request_id": "r-0848", "user_id": "u-1007", "ip": "192.0.2.12", "channel": "email", "reason": "SMTP 550 - Invalid address"}
+{"ts": "2025-06-03T09:01:10.914Z", "lvl": "INFO", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-0853", "user_id": "u-1002"}
+{"ts": "2025-06-03T09:01:18.853Z", "lvl": "DEBUG", "service": "notification", "event": "email_sent", "request_id": "r-0809", "user_id": "u-1001", "ip": "10.0.0.5", "template_id": "order_confirmation", "channel": "email"}
+{"ts": "2025-06-03T09:01:13.754Z", "lvl": "INFO", "service": "user", "event": "preferences_saved", "request_id": "r-07d1", "user_id": "u-1013", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:01:13.242Z", "lvl": "INFO", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-0887", "user_id": "u-1017", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:01:44.020Z", "lvl": "ERROR", "service": "cart", "event": "remove_from_cart", "request_id": "r-0817", "user_id": "u-1009"}
+{"ts": "2025-06-03T09:01:37.114Z", "lvl": "INFO", "service": "alert", "event": "anomaly_detected", "request_id": "r-0830", "user_id": "u-1003", "ip": "203.0.113.44", "metric": "payment_latency_p95", "value": 612, "threshold": 600}
+{"ts": "2025-06-03T09:00:51.081Z", "lvl": "inf0", "service": "kpi", "event": "daily_rollup", "request_id": "r-0880", "user_id": "u-1016", "orders_today": 170767, "gmv_usd": 45033440.87, "timestamp": "2025-06-03T09:00:51.081Z"}
+{"ts": "2025-06-03T09:00:50.793Z", "lvl": "WARN", "service": "payment", "event": "payment_authorized", "request_id": "r-0834", "user_id": "u-1012"}
+{"ts": "2025-06-03T09:01:14.632Z", "lvl": "DEBUG", "service": "inventory", "event": "stock_decrement", "request_id": "r-0860", "user_id": "u-1000", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:02:01.751Z", "lvl": "ERROR", "service": "checkout", "event": "checkout_started", "request_id": "r-0845", "user_id": "u-1017", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:00:52.811Z", "lvl": "DEBUG", "service": "inventory", "event": "stock_decrement", "request_id": "r-083e", "user_id": "u-1018", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:01:48.186Z", "lvl": "ERROR", "service": "user", "event": "preferences_saved", "request_id": "r-088d", "user_id": "u-1008", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:01:09.775Z", "lvl": "DEBUG", "service": "payment", "event": "payment_authorized", "request_id": "r-082a", "user_id": "u-1011"}
+{"ts": "2025-06-03T09:01:58.480Z", "lvl": "WARN", "service": "catalog", "event": "product_view", "request_id": "r-081b", "user_id": "u-1000", "ip": "192.0.2.12", "sku": "SKU-100003", "latency_ms": 36}
+{"ts": "2025-06-03T09:01:33.055Z", "lvl": "ERROR", "service": "order", "event": "order_created", "request_id": "r-081b", "user_id": "u-1009", "ip": "198.51.100.8", "order_id": "o-90062", "cart_value": 134.55, "currency": "USD"}
+{"ts": "2025-06-03T09:00:44.631Z", "lvl": "DEBUG", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-07d2", "user_id": "u-1012", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:02:36.753Z", "lvl": "DEBUG", "service": "kpi", "event": "daily_rollup", "request_id": "r-0875", "user_id": "u-1009", "ip": "10.0.0.5", "orders_today": 134828, "gmv_usd": 13481802.64, "timestamp": "2025-06-03T09:02:36.753Z"}
+{"ts": "2025-06-03T09:00:59.824Z", "lvl": "DEBUG", "service": "payment", "event": "payment_authorized", "request_id": "r-080d", "user_id": "u-1013", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:01:37.591Z", "lvl": "WARN", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-07ee", "user_id": "u-1004", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:01:17.627Z", "lvl": "ERROR", "service": "catalog", "event": "product_view_fail", "request_id": "r-080c", "user_id": "u-1007", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:02:58.967Z", "lvl": "DEBUG", "service": "shipment", "event": "label_printed", "request_id": "r-0860", "user_id": "u-1005", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:01:44.267Z", "lvl": "DEBUG", "service": "shipment", "event": "label_printed", "request_id": "r-07f5", "user_id": "u-1013", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:02:16.814Z", "lvl": "DEBUG", "service": "notification", "event": "delivery_failure", "request_id": "r-07d7", "user_id": "u-1015", "ip": "192.0.2.12", "channel": "email", "reason": "SMTP 550 - Invalid address"}
+{"ts": "2025-06-03T09:01:31.599Z", "lvl": "INFO", "service": "analytics", "event": "user_session_summary", "request_id": "r-0829", "user_id": "u-1005", "duration_sec": 252, "pages_visited": 11, "conversion": true}
+{"ts": "2025-06-03T09:01:53.961Z", "lvl": "ERROR", "service": "payment", "event": "payment_authorized", "request_id": "r-07dd", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:02:03.938Z", "lvl": "WARN", "service": "cart", "event": "add_to_cart", "request_id": "r-084a", "ip": "192.0.2.12", "sku": "SKU-100004", "qty": 2, "cart_value": 247.48}
+{"ts": "2025-06-03T09:01:31.963Z", "lvl": "WARN", "service": "cart", "event": "add_to_cart", "request_id": "r-07e2", "user_id": "u-1019", "ip": "192.0.2.12", "sku": "SKU-100092", "qty": 1, "cart_value": 146.2}
+{"ts": "2025-06-03T09:02:36.867Z", "lvl": "WARN", "service": "order", "event": "order_created", "request_id": "r-0834", "user_id": "u-1010", "ip": "192.0.2.12", "order_id": "o-90171", "cart_value": 71.83, "currency": "USD"}
+{"ts": "2025-06-03T09:01:22.439Z", "lvl": "INFO", "service": "payment", "event": "payment_retry", "request_id": "r-086f", "user_id": "u-1005", "ip": "192.0.2.12", "provider": "stripe", "attempt": 3, "reason": "rate_limit"}
+{"ts": "2025-06-03T09:02:46.970Z", "lvl": "DEBUG", "service": "catalog", "event": "exception", "request_id": "r-07da", "user_id": "u-1011", "ip": "203.0.113.44", "stack": "java.lang.IllegalStateException: Test exception\n\tat com.store.module.Class.method(Class.scala:42)"}
+{"ts": "2025-06-03T09:01:41.080Z", "lvl": "ERROR", "service": "kpi", "event": "daily_rollup", "request_id": "r-088f", "user_id": "u-1015", "ip": "198.51.100.8", "orders_today": 134403, "gmv_usd": 46596223.57, "timestamp": "2025-06-03T09:01:41.080Z"}
+{"ts": "2025-06-03T09:01:29.835Z", "lvl": "DEBUG", "service": "payment", "event": "payment_authorized", "request_id": "r-0851", "user_id": "u-1004"}
+{"ts": "2025-06-03T09:02:47.311Z", "lvl": "ERROR", "service": "kpi", "event": "daily_rollup", "request_id": "r-07ed", "user_id": "u-1017", "ip": "10.0.0.5", "orders_today": 125313, "gmv_usd": 28037238.5, "timestamp": "2025-06-03T09:02:47.311Z"}
+{"ts": "2025-06-03T09:03:02.660Z", "lvl": "DEBUG", "service": "inventory", "event": "stock_decrement", "request_id": "r-080b", "user_id": "u-1019", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:02:12.639Z", "lvl": "DEBUG", "service": "user", "event": "profile_update", "request_id": "r-080d", "user_id": "u-1003"}
+{"ts": "2025-06-03T09:02:30.835Z", "lvl": "ERROR", "service": "payment", "event": "payment_authorized", "request_id": "r-0887", "user_id": "u-1007", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:01:16.159Z", "lvl": "DEBUG", "service": "notification", "event": "email_sent", "request_id": "r-07f0", "user_id": "u-1003", "ip": "198.51.100.8", "template_id": "order_confirmation", "channel": "email"}
+{"ts": "2025-06-03T09:01:21.926Z", "lvl": "WARN", "service": "catalog", "event": "product_view_fail", "request_id": "r-0811", "user_id": "u-1009"}
+{"ts": "2025-06-03T09:02:15.553Z", "lvl": "WARN", "service": "notification", "event": "email_sent", "request_id": "r-0874", "user_id": "u-1009", "template_id": "order_confirmation", "channel": "email"}
+{"ts": "2025-06-03T09:03:08.967Z", "lvl": "DEBUG", "service": "analytics", "event": "user_session_summary", "request_id": "r-0820", "user_id": "u-1013", "ip": "203.0.113.44", "duration_sec": 92, "pages_visited": 10, "conversion": false}
+{"ts": "2025-06-03T09:02:27.034Z", "lvl": "DEBUG", "service": "analytics", "event": "user_session_summary", "request_id": "r-07f5", "ip": "203.0.113.44", "duration_sec": 171, "pages_visited": 6, "conversion": false}
+{"ts": "2025-06-03T09:02:56.452Z", "lvl": "ERROR", "service": "kpi", "event": "daily_rollup", "request_id": "r-0868", "user_id": "u-1012", "ip": "203.0.113.44", "orders_today": 129919, "gmv_usd": 23616819.94, "timestamp": "2025-06-03T09:02:56.452Z"}
+{"ts": "2025-06-03T09:02:47.990Z", "lvl": "ERROR", "service": "user", "event": "preferences_saved", "request_id": "r-07de", "user_id": "u-1005"}
+{"ts": "2025-06-03T09:03:52.301Z", "lvl": "WARN", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-0852", "user_id": "u-1011", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:01:44.376Z", "lvl": "INFO", "service": "inventory", "event": "stock_unavailable", "request_id": "r-0876", "user_id": "u-1013", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:01:22.625Z", "lvl": "INFO", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-0893", "user_id": "u-1018", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:03:36.544Z", "lvl": "WARN", "service": "kpi", "event": "daily_rollup", "request_id": "r-0859", "user_id": "u-1002", "ip": "203.0.113.44", "orders_today": 116003, "gmv_usd": 45566268.26, "timestamp": "2025-06-03T09:03:36.544Z"}
+{"ts": "2025-06-03T09:03:56.067Z", "lvl": "DEBUG", "service": "auth", "event": "login_fail", "request_id": "r-083a", "user_id": "u-1006", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:03:27.052Z", "lvl": "DEBUG", "service": "inventory", "event": "stock_decrement", "request_id": "r-07e6", "user_id": "u-1007"}
+{"ts": "2025-06-03T09:03:13.691Z", "lvl": "DEBUG", "service": "cart", "event": "add_to_cart", "request_id": "r-07e0", "user_id": "u-1001", "ip": "198.51.100.8", "sku": "SKU-100098", "qty": 3, "cart_value": 179.16}
+{"ts": "2025-06-03T09:03:31.896Z", "lvl": "DEBUG", "service": "user", "event": "profile_update", "request_id": "r-07fb", "user_id": "u-1011"}
+{"ts": "2025-06-03T09:04:05.332Z", "lvl": "INFO", "service": "kpi", "event": "daily_rollup", "request_id": "r-0830", "user_id": "u-1019", "ip": "198.51.100.8", "orders_today": 165515, "gmv_usd": 22813735.31, "timestamp": "2025-06-03T09:04:05.332Z"}
+{"ts": "2025-06-03T09:03:47.612Z", "lvl": "INFO", "service": "inventory", "event": "stock_unavailable", "request_id": "r-084a", "user_id": "u-1012", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:02:45.291Z", "lvl": "ERROR", "service": "auth", "event": "password_reset_requested", "request_id": "r-0802", "user_id": "u-1012", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:02:25.112Z", "lvl": "DEBUG", "service": "analytics", "event": "", "request_id": "r-087b", "user_id": "u-1014", "ip": "198.51.100.8", "duration_sec": 241, "pages_visited": 6, "conversion": false}
+{"ts": "2025-06-03T09:02:34.984Z", "lvl": "DEBUG", "service": "catalog", "event": "product_view_fail", "request_id": "r-0812", "user_id": "u-1004", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:02:36.146Z", "lvl": "WARN", "service": "inventory", "event": "stock_unavailable", "request_id": "r-082b", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:03:48.560Z", "lvl": "WARN", "service": "cart", "event": "remove_from_cart", "request_id": "r-085b", "user_id": "u-1011", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:01:24.930Z", "lvl": "INFO", "service": "cart", "event": "add_to_cart", "request_id": "r-07e4", "ip": "192.0.2.12", "sku": "SKU-100025", "qty": 3, "cart_value": 180.92}
+{"ts": "2025-06-03T09:02:20.135Z", "lvl": "INFO", "service": "inventory", "event": "stock_unavailable", "request_id": "r-083f", "user_id": "u-1016"}
+{"ts": "2025-06-03T09:04:22.314Z", "lvl": "ERROR", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-07dd", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:01:49.797Z", "lvl": "ERROR", "service": "order", "event": "order_created", "request_id": "r-07ea", "user_id": "u-1000", "ip": "203.0.113.44", "order_id": "o-90151", "cart_value": 44.49, "currency": "USD"}
+{"ts": "2025-06-03T09:04:35.212Z", "lvl": "ERROR", "service": "shipment", "event": "label_printed", "request_id": "r-0839", "user_id": "u-1008", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:02:51.120Z", "lvl": "WARN", "service": "catalog", "event": "product_view", "request_id": "r-07ed", "user_id": "u-1008", "ip": "10.0.0.5", "sku": "SKU-100052", "latency_ms": 39}
+{"ts": "2025-06-03T09:01:03.347Z", "lvl": "INFO", "service": "analytics", "event": "user_session_summary", "request_id": "r-086f", "user_id": "u-1018", "ip": "203.0.113.44", "duration_sec": 132, "pages_visited": 9, "conversion": false}
+{"ts": "2025-06-03T09:03:45.497Z", "lvl": "ERROR", "service": "search", "event": "search_results", "request_id": "r-0851", "user_id": "u-1014"}
+{"ts": "2025-06-03T09:02:56.477Z", "lvl": "INFO", "service": "catalog", "event": "exception", "request_id": "r-0832", "user_id": "u-1001", "ip": "198.51.100.8", "stack": "java.lang.IllegalStateException: Test exception\n\tat com.store.module.Class.method(Class.scala:42)"}
+{"ts": "2025-06-03T09:04:51.949Z", "lvl": "INFO", "service": "inventory", "event": "stock_unavailable", "request_id": "r-0842", "user_id": "u-1006", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:01:25.313Z", "lvl": "WARN", "service": "kpi", "event": "daily_rollup", "request_id": "r-0872", "user_id": "u-1018", "ip": "198.51.100.8", "orders_today": 119156, "gmv_usd": 38944240.6, "timestamp": "2025-06-03T09:01:25.313Z"}
+{"ts": "2025-06-03T09:04:04.157Z", "lvl": "DEBUG", "service": "order", "event": "order_created", "request_id": "r-0878", "user_id": "u-1018", "ip": "203.0.113.44", "order_id": "o-90041", "cart_value": 246.87, "currency": "USD"}
+{"ts": "2025-06-03T09:02:33.143Z", "lvl": "DEBUG", "service": "alert", "event": "anomaly_detected", "request_id": "r-0845", "user_id": "u-1014", "metric": "payment_latency_p95", "value": 675, "threshold": 600}
+{"ts": "2025-06-03T09:02:08.413Z", "lvl": "WARN", "service": "kpi", "event": "daily_rollup", "request_id": "r-0883", "user_id": "u-1009", "ip": "10.0.0.5", "orders_today": 182601, "gmv_usd": 20428308.68, "timestamp": "2025-06-03T09:02:08.413Z"}
+{"ts": "2025-06-03T09:01:49.211Z", "lvl": "DEBUG", "service": "kpi", "event": "daily_rollup", "request_id": "r-0885", "user_id": "u-1005", "ip": "203.0.113.44", "orders_today": 143952, "gmv_usd": 23607689.13, "timestamp": "2025-06-03T09:01:49.211Z"}
+{"ts": "2025-06-03T09:03:14.086Z", "lvl": "WARN", "service": "payment", "event": "payment_retry", "request_id": "r-0874", "user_id": "u-1003", "ip": "198.51.100.8", "provider": "stripe", "attempt": 2, "reason": "rate_limit"}
+{"ts": "2025-06-03T09:02:34.438Z", "lvl": "WARN", "service": "checkout", "event": "checkout_started", "request_id": "r-0851", "user_id": "u-1004", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:05:12.124Z", "lvl": "WARN", "service": "checkout", "event": "checkout_started", "request_id": "r-0838", "user_id": "u-1002", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:03:07.309Z", "lvl": "ERROR", "service": "order", "event": "order_created", "request_id": "r-0833", "user_id": "u-1011", "ip": "198.51.100.8", "order_id": "o-90118", "cart_value": 87.91, "currency": "USD"}
+{"ts": "2025-06-03T09:03:58.350Z", "lvl": "WARN", "service": "payment", "event": "payment_retry", "request_id": "r-0862", "ip": "198.51.100.8", "provider": "stripe", "attempt": 1, "reason": "insufficient_funds"}
+{"ts": "2025-06-03T09:03:42.762Z", "lvl": "WARN", "service": "checkout", "event": "checkout_started", "request_id": "r-083d", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:03:28.268Z", "lvl": "WARN", "service": "order", "event": "order_created", "request_id": "r-07db", "user_id": "u-1012", "ip": "198.51.100.8", "order_id": "o-90181", "cart_value": 274.67, "currency": "USD"}
+{"ts": "2025-06-03T09:03:58.117Z", "lvl": "inf0", "service": "kpi", "event": "daily_rollup", "request_id": "r-085e", "ip": "203.0.113.44", "orders_today": 185917, "gmv_usd": 12016891.27, "timestamp": "2025-06-03T09:03:58.117Z"}
+{"ts": "2025-06-03T09:01:07.679Z", "lvl": "WARN", "service": "catalog", "event": "product_view", "request_id": "r-0896", "user_id": "u-1000", "ip": "10.0.0.5", "sku": "SKU-100081", "latency_ms": 51}
+{"ts": "2025-06-03T09:02:53.705Z", "lvl": "inf0", "service": "payment", "event": "payment_retry", "request_id": "r-0802", "user_id": "u-1015", "ip": "198.51.100.8", "provider": "stripe", "attempt": 1, "reason": "rate_limit"}
+{"ts": "2025-06-03T09:05:19.631Z", "lvl": "DEBUG", "service": "shipment", "event": "shipment_dispatched", "request_id": "r-088f", "user_id": "u-1015", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:04:49.481Z", "lvl": "WARN", "service": "auth", "event": "login_fail", "request_id": "r-0818", "user_id": "u-1003"}
+{"ts": "2025-06-03T09:03:26.100Z", "lvl": "ERROR", "service": "order", "event": "order_created", "request_id": "r-07d3", "user_id": "u-1016", "order_id": "o-90064", "cart_value": 52.58, "currency": "USD"}
+{"ts": "2025-06-03T09:03:23.014Z", "lvl": "ERROR", "service": "alert", "event": "anomaly_detected", "request_id": "r-0830", "user_id": "u-1005", "ip": "192.0.2.12", "metric": "payment_latency_p95", "value": 686, "threshold": 600}
+{"ts": "2025-06-03T09:04:02.349Z", "lvl": "WARN", "service": "alert", "event": "anomaly_detected", "request_id": "r-07d2", "user_id": "u-1012", "ip": "203.0.113.44", "metric": "payment_latency_p95", "value": 865, "threshold": 600}
+{"ts": "2025-06-03T09:03:32.697Z", "lvl": "DEBUG", "service": "user", "event": "preferences_saved", "request_id": "r-07db", "user_id": "u-1009", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:04:53.272Z", "lvl": "ERROR", "service": "cart", "event": "add_to_cart", "request_id": "r-0851", "user_id": "u-1001", "ip": "198.51.100.8", "sku": "SKU-100049", "qty": 2, "cart_value": 31.03}
+{"ts": "2025-06-03T09:03:11.371Z", "lvl": "inf0", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-087f", "user_id": "u-1013", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:04:15.624Z", "lvl": "WARN", "service": "inventory", "event": "stock_decrement", "request_id": "r-07dc", "user_id": "u-1005", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:05:10.833Z", "lvl": "WARN", "service": "notification", "event": "delivery_failure", "request_id": "r-0885", "user_id": "u-1003", "ip": "192.0.2.12", "channel": "email", "reason": "SMTP 550 - Invalid address"}
+{"ts": "2025-06-03T09:01:50.811Z", "lvl": "DEBUG", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-0852", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:01:33.749Z", "lvl": "INFO", "service": "notification", "event": "delivery_failure", "request_id": "r-085b", "user_id": "u-1001", "ip": "203.0.113.44", "channel": "email", "reason": "SMTP 550 - Invalid address"}
+{"ts": "2025-06-03T09:04:05.227Z", "lvl": "DEBUG", "service": "cart", "event": "add_to_cart", "request_id": "r-0897", "user_id": "u-1015", "ip": "198.51.100.8", "sku": "SKU-100089", "qty": 3, "cart_value": 233.02}
+{"ts": "2025-06-03T09:05:42.852Z", "lvl": "INFO", "service": "search", "event": "search_results", "request_id": "r-0814", "user_id": "u-1010"}
+{"ts": "2025-06-03T09:04:24.702Z", "lvl": "ERROR", "service": "catalog", "event": "", "request_id": "r-07d0", "user_id": "u-1002", "ip": "192.0.2.12", "stack": "java.lang.IllegalStateException: Test exception\n\tat com.store.module.Class.method(Class.scala:42)"}
+{"ts": "2025-06-03T09:04:35.970Z", "lvl": "ERROR", "service": "order", "event": "order_created", "request_id": "r-0890", "user_id": "u-1009", "ip": "203.0.113.44", "order_id": "o-90126", "cart_value": 152.9, "currency": "USD"}
+{"ts": "2025-06-03T09:04:12.209Z", "lvl": "DEBUG", "service": "cart", "event": "add_to_cart", "request_id": "r-07dc", "user_id": "u-1014", "ip": "192.0.2.12", "sku": "SKU-100017", "qty": 2, "cart_value": 298.19}
+{"ts": "2025-06-03T09:02:12.074Z", "lvl": "ERROR", "service": "search", "event": "autosuggest", "request_id": "r-087c", "user_id": "u-1004"}
+{"ts": "2025-06-03T09:04:41.004Z", "lvl": "WARN", "service": "catalog", "event": "product_view_fail", "request_id": "r-0871", "user_id": "u-1003", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:03:49.469Z", "lvl": "DEBUG", "service": "checkout", "event": "checkout_started", "request_id": "r-0873", "user_id": "u-1001", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:02:03.234Z", "lvl": "inf0", "service": "inventory", "event": "stock_unavailable", "request_id": "r-0839", "user_id": "u-1007", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:02:53.073Z", "lvl": "ERROR", "service": "checkout", "event": "checkout_started", "request_id": "r-081d", "user_id": "u-1013", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:04:39.615Z", "lvl": "ERROR", "service": "auth", "event": "login_success", "request_id": "r-082b", "user_id": "u-1016", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:03:28.267Z", "lvl": "DEBUG", "service": "analytics", "event": "user_session_summary", "request_id": "r-083a", "user_id": "u-1016", "ip": "10.0.0.5", "duration_sec": 217, "pages_visited": 12, "conversion": true}
+{"ts": "2025-06-03T09:03:10.702Z", "lvl": "WARN", "service": "kpi", "event": "daily_rollup", "request_id": "r-07ec", "user_id": "u-1007", "ip": "192.0.2.12", "orders_today": 186998, "gmv_usd": 18888770.52, "timestamp": "2025-06-03T09:03:10.702Z"}
+{"ts": "2025-06-03T09:02:22.564Z", "lvl": "DEBUG", "service": "alert", "event": "anomaly_detected", "request_id": "r-083c", "user_id": "u-1002", "ip": "192.0.2.12", "metric": "payment_latency_p95", "value": 738, "threshold": 600}
+{"ts": "2025-06-03T09:01:39.073Z", "lvl": "INFO", "service": "notification", "event": "delivery_failure", "request_id": "r-0845", "user_id": "u-1012", "ip": "198.51.100.8", "channel": "email", "reason": "SMTP 550 - Invalid address"}
+{"ts": "2025-06-03T09:01:35.555Z", "lvl": "INFO", "service": "analytics", "event": "user_session_summary", "request_id": "r-080a", "user_id": "u-1007", "ip": "198.51.100.8", "duration_sec": 30, "pages_visited": 6, "conversion": true}
+{"ts": "2025-06-03T09:03:50.064Z", "lvl": "ERROR", "service": "order", "event": "order_created", "request_id": "r-07d2", "user_id": "u-1007", "ip": "198.51.100.8", "order_id": "o-90054", "cart_value": 74.51, "currency": "USD"}
+{"ts": "2025-06-03T09:06:25.984Z", "lvl": "DEBUG", "service": "auth", "event": "login_success", "request_id": "r-086b", "user_id": "u-1001", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:06:44.239Z", "lvl": "DEBUG", "service": "notification", "event": "email_sent", "request_id": "r-0824", "user_id": "u-1007", "ip": "203.0.113.44", "template_id": "order_confirmation", "channel": "email"}
+{"ts": "2025-06-03T09:05:33.736Z", "lvl": "DEBUG", "service": "search", "event": "autosuggest", "request_id": "r-07fb", "user_id": "u-1006", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:04:27.025Z", "lvl": "INFO", "service": "order", "event": "order_created", "request_id": "r-0818", "user_id": "u-1011", "ip": "198.51.100.8", "order_id": "o-90192", "cart_value": 258.07, "currency": "USD"}
+{"ts": "2025-06-03T09:04:09.222Z", "lvl": "ERROR", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-07f4", "user_id": "u-1016", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:05:25.746Z", "lvl": "inf0", "service": "shipment", "event": "label_printed", "request_id": "r-07d6", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:06:55.919Z", "lvl": "INFO", "service": "inventory", "event": "stock_decrement", "request_id": "r-0809", "user_id": "u-1019", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:04:02.914Z", "lvl": "INFO", "service": "order", "event": "order_created", "request_id": "r-0837", "user_id": "u-1008", "order_id": "o-90178", "cart_value": 99.55, "currency": "USD"}
+{"ts": "2025-06-03T09:04:41.365Z", "lvl": "INFO", "service": "payment", "event": "payment_failed", "request_id": "r-080e", "user_id": "u-1011", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:03:36.389Z", "lvl": "DEBUG", "service": "notification", "event": "delivery_failure", "request_id": "r-0801", "user_id": "u-1005", "ip": "192.0.2.12", "channel": "email", "reason": "SMTP 550 - Invalid address"}
+{"ts": "2025-06-03T09:02:54.896Z", "lvl": "ERROR", "service": "payment", "event": "payment_authorized", "request_id": "r-0820", "user_id": "u-1013", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:06:38.257Z", "lvl": "DEBUG", "service": "notification", "event": "email_sent", "request_id": "r-07e8", "user_id": "u-1000", "ip": "10.0.0.5", "template_id": "order_confirmation", "channel": "email"}
+{"ts": "2025-06-03T09:03:34.748Z", "lvl": "DEBUG", "service": "inventory", "event": "stock_decrement", "request_id": "r-0862", "user_id": "u-1011", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:04:51.362Z", "lvl": "WARN", "service": "cart", "event": "add_to_cart", "request_id": "r-0807", "sku": "SKU-100060", "qty": 3, "cart_value": 244.11}
+{"ts": "2025-06-03T09:01:51.540Z", "lvl": "ERROR", "service": "user", "event": "profile_update", "request_id": "r-07d1", "user_id": "u-1001"}
+{"ts": "2025-06-03T09:03:08.833Z", "lvl": "ERROR", "service": "payment", "event": "payment_retry", "request_id": "r-0800", "user_id": "u-1011", "ip": "198.51.100.8", "provider": "stripe", "attempt": 2, "reason": "insufficient_funds"}
+{"ts": "2025-06-03T09:06:06.947Z", "lvl": "DEBUG", "service": "analytics", "event": "user_session_summary", "request_id": "r-0827", "user_id": "u-1015", "ip": "192.0.2.12", "duration_sec": 300, "pages_visited": 2, "conversion": true}
+{"ts": "2025-06-03T09:02:41.360Z", "lvl": "INFO", "service": "alert", "event": "anomaly_detected", "request_id": "r-07d2", "user_id": "u-1008", "ip": "192.0.2.12", "metric": "payment_latency_p95", "value": 651, "threshold": 600}
+{"ts": "2025-06-03T09:07:12.350Z", "lvl": "INFO", "service": "alert", "event": "anomaly_detected", "request_id": "r-080d", "user_id": "u-1006", "ip": "10.0.0.5", "metric": "payment_latency_p95", "value": 901, "threshold": 600}
+{"ts": "2025-06-03T09:03:51.439Z", "lvl": "DEBUG", "service": "cart", "event": "add_to_cart", "request_id": "r-081a", "user_id": "u-1011", "sku": "SKU-100067", "qty": 1, "cart_value": 284.39}
+{"ts": "2025-06-03T09:05:16.638Z", "lvl": "ERROR", "service": "search", "event": "search_results", "request_id": "r-0803", "user_id": "u-1009", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:06:28.298Z", "lvl": "DEBUG", "service": "shipment", "event": "label_printed", "request_id": "r-084d", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:06:36.398Z", "lvl": "INFO", "service": "analytics", "event": "user_session_summary", "request_id": "r-086c", "user_id": "u-1016", "duration_sec": 125, "pages_visited": 11, "conversion": true}
+{"ts": "2025-06-03T09:03:41.015Z", "lvl": "WARN", "service": "payment", "event": "payment_retry", "request_id": "r-0802", "user_id": "u-1016", "ip": "198.51.100.8", "provider": "stripe", "attempt": 1, "reason": "rate_limit"}
+{"ts": "2025-06-03T09:03:14.174Z", "lvl": "WARN", "service": "payment", "event": "payment_failed", "request_id": "r-0863", "user_id": "u-1019", "ip": "192.0.2.12"}
+{"ts": "2025-06-03T09:05:18.640Z", "lvl": "DEBUG", "service": "alert", "event": "anomaly_detected", "request_id": "r-085d", "user_id": "u-1017", "ip": "203.0.113.44", "metric": "payment_latency_p95", "value": 798, "threshold": 600}
+{"ts": "2025-06-03T09:05:57.686Z", "lvl": "WARN", "service": "user", "event": "profile_update", "request_id": "r-088a", "user_id": "u-1012", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:04:39.679Z", "lvl": "WARN", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-07f2", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:04:17.056Z", "lvl": "DEBUG", "service": "cart", "event": "remove_from_cart", "request_id": "r-080a", "user_id": "u-1005"}
+{"ts": "2025-06-03T09:02:26.717Z", "lvl": "DEBUG", "service": "shipment", "event": "shipment_dispatched", "request_id": "r-07e4", "user_id": "u-1012", "ip": "203.0.113.44"}
+{"ts": "2025-06-03T09:08:02.807Z", "lvl": "DEBUG", "service": "user", "event": "profile_update", "request_id": "r-0850", "user_id": "u-1019"}
+{"ts": "2025-06-03T09:02:48.554Z", "lvl": "ERROR", "service": "search", "event": "autosuggest", "request_id": "r-085e", "user_id": "u-1005", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:03:00.368Z", "lvl": "ERROR", "service": "rec_engine", "event": "recommendations_served", "request_id": "r-0890", "ip": "198.51.100.8"}
+{"ts": "2025-06-03T09:07:20.800Z", "lvl": "WARN", "service": "cart", "event": "add_to_cart", "request_id": "r-083b", "user_id": "u-1014", "ip": "198.51.100.8", "sku": "SKU-100032", "qty": 2, "cart_value": 110.37}
+{"ts": "2025-06-03T09:08:04.749Z", "lvl": "DEBUG", "service": "auth", "event": "login_success", "request_id": "r-0808", "user_id": "u-1014", "ip": "10.0.0.5"}
+{"ts": "2025-06-03T09:06:11.727Z", "lvl": "DEBUG", "service": "kpi", "event": "daily_rollup", "request_id": "r-07e2", "user_id": "u-1017", "orders_today": 121043, "gmv_usd": 32247990.44, "timestamp": "2025-06-03T09:06:11.727Z"}
+{"ts": "2025-06-03T09:01:00.001Z", "lvl": "ERROR", "service": "order", "event": "db_connection_failed", "request_id": "r-dead", "error": "could not connect to Postgres at 10.0.0.12:5432: timeout", "stack": "org.postgresql.util.PSQLException: Connection timed out\n\tat org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:303)"}
+{"ts": "2025-06-03T09:01:01.111Z", "lvl": "ERROR", "service": "auth", "event": "sql_exception", "request_id": "r-beef", "query": "SELECT * FROM users WHERE email=?", "error": "ORA-00942: table or view does not exist", "stack": "oracle.jdbc.driver.OracleSQLException: ORA-00942\n\tat oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:445)"}
+{"ts": "2025-06-03T09:01:02.222Z", "lvl": "ERROR", "service": "payment", "event": "rpc_failure", "request_id": "r-feed", "target_service": "inventory", "error": "gRPC deadline exceeded", "stack": "io.grpc.StatusRuntimeException: DEADLINE_EXCEEDED\n\tat payment.InventoryClient.reserve(InventoryClient.java:73)"}
+{"ts": "2025-06-03T09:01:03.333Z", "lvl": "WARN", "service": "rec_engine", "event": "model_not_loaded", "request_id": "r-baad", "model_version": "rec-v9-2025", "error": "model weights file not found at /mnt/models/rec-v9.pt"}
+{"ts": "2025-06-03T09:01:04.444Z", "lvl": "ERROR", "service": "notification", "event": "template_render_error", "request_id": "r-face", "template_id": "order_failed", "error": "TypeError: Cannot read property 'order_id' of undefined", "stack": "at render (/templates/order_failed.js:17:21)\n    at NotificationService.send (/services/notification.js:88:15)"}
+{"ts": "2025-06-03T09:01:10.100Z", "lvl": "INFO", "service": "payment", "event": "payment_initiated", "request_id": "r-a001", "user_id": "u-1201", "amount": 89.99, "currency": "USD", "provider": "stripe", "method": "credit_card", "cart_id": "c-4512"}
+{"ts": "2025-06-03T09:01:10.850Z", "lvl": "INFO", "service": "payment", "event": "payment_authorized", "request_id": "r-a001", "auth_id": "pi_4RTyXsd092", "provider": "stripe", "latency_ms": 328, "amount": 89.99, "currency": "USD"}
+{"ts": "2025-06-03T09:01:12.014Z", "lvl": "WARN", "service": "payment", "event": "payment_retry", "request_id": "r-a002", "user_id": "u-9981", "attempt": 2, "provider": "adyen", "reason": "3ds_required", "latency_ms": 589}
+{"ts": "2025-06-03T09:01:13.333Z", "lvl": "ERROR", "service": "payment", "event": "payment_failed", "request_id": "r-a003", "user_id": "u-7782", "amount": 199.5, "currency": "USD", "provider": "paypal", "reason": "payer_action_required", "error": "Payer must authenticate payment on PayPal site"}
+{"ts": "2025-06-03T09:01:15.662Z", "lvl": "INFO", "service": "payment", "event": "refund_issued", "request_id": "r-a004", "user_id": "u-2241", "order_id": "o-99731", "amount": 129.9, "currency": "USD", "provider": "stripe", "refund_id": "re_1NHxy7mAx"}

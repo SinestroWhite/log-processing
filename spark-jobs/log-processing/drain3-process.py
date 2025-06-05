@@ -7,16 +7,16 @@ from datetime import datetime
 import sys
 import boto3
 
-print("🔍 Script arguments:", sys.argv)
+print("Script arguments:", sys.argv)
 if len(sys.argv) < 3:
-    print("❌ Not enough arguments! Exiting.")
+    print("Not enough arguments! Exiting.")
     sys.exit(1)
 
 input_path = sys.argv[1]
 output_path = sys.argv[2]
 
-print(f"✅ input_path: {input_path}")
-print(f"✅ output_path: {output_path}")
+print(f"input_path: {input_path}")
+print(f"output_path: {output_path}")
 
 s3 = boto3.client('s3')
 
@@ -38,10 +38,10 @@ spark = SparkSession.builder \
 
 df = spark.read.text(all_files).withColumnRenamed("value", "raw")
 
-print("📄 Raw input preview:")
+print("Raw input preview:")
 df.show(10, truncate=False)
 
-print("📈 df.count() =", df.count())
+print("df.count() =", df.count())
 
 schema = StructType([
     StructField("raw", StringType(), True),
@@ -63,25 +63,25 @@ rdd_result = df.rdd.mapPartitions(process_partition)
 df_result = spark.createDataFrame(rdd_result, schema)
 
 if df_result is None:
-    print("❌ df_result is None")
+    print("df_result is None")
     sys.exit(0)
 
 if df_result.rdd.isEmpty():
-    print("⚠️ df_result is empty")
-    print("🔍 df_result schema:")
+    print("df_result is empty")
+    print("df_result schema:")
     df_result.printSchema()
 else:
-    print("✅ df_result contains data (showing first 20 lines):")
+    print("df_result contains data (showing first 20 lines):")
     df_result.show(20, truncate=False)
 
     now_utc = datetime.utcnow()
     partition_path = now_utc.strftime("%Y/%m/%d/")
     timestamp_str = now_utc.strftime("%Y-%m-%dT%H-%M-%S")
 
-    print(f"📤 Saving to: s3://{output_path.strip()}/{partition_path}{timestamp_str}-logs")
-    df_result.write.mode("overwrite").json(f"s3://{output_path.strip()}/{partition_path}{timestamp_str}-logs")
+    print(f"Saving to: s3://{output_path.strip()}/{partition_path}{timestamp_str}-logs")
+    df_result.write.mode("append").json(f"s3://{output_path.strip()}/{partition_path}{timestamp_str}-logs")
 
     template_counts = df_result.groupBy("template").count().orderBy("count", ascending=False)
-    template_counts.write.mode("overwrite").json(f"s3://{output_path.strip()}/{partition_path}{timestamp_str}-template-summary")
+    template_counts.write.mode("append").json(f"s3://{output_path.strip()}/{partition_path}{timestamp_str}-template-summary")
 
 spark.stop()
