@@ -19,7 +19,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 ```bash
 aws emr-serverless start-job-run \
     --region eu-central-1 \
-    --application-id "00ft25t5p3a9jg15" \
+    --application-id "00fsv0la1ci1v015" \
     --name "SparkJobRun" \
     --execution-role-arn "arn:aws:iam::278838288143:role/LogProcessingStack-EmrJobRoleD77C0CE1-wjaGCBhPmugN" \
     --job-driver '{
@@ -38,7 +38,7 @@ aws emr-serverless start-job-run \
 ```bash
   aws emr-serverless start-job-run \
     --region eu-central-1 \
-    --application-id "00ft25t5p3a9jg15" \
+    --application-id "00fsv0la1ci1v015" \
     --name "SparkJobRun" \
     --execution-role-arn "arn:aws:iam::278838288143:role/LogProcessingStack-EmrJobRoleD77C0CE1-wjaGCBhPmugN" \
     --job-driver '{

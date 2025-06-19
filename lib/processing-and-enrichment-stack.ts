@@ -1,45 +1,20 @@
 import * as cdk from "aws-cdk-lib"
 import * as s3 from "aws-cdk-lib/aws-s3"
-import * as kinesisFirehose from "aws-cdk-lib/aws-kinesisfirehose"
 import * as emrserverless from 'aws-cdk-lib/aws-emrserverless';
-import * as stepfunctions from "aws-cdk-lib/aws-stepfunctions"
-import * as stepfunctionsTasks from "aws-cdk-lib/aws-stepfunctions-tasks"
-import * as glue from "aws-cdk-lib/aws-glue"
-import * as athena from "aws-cdk-lib/aws-athena"
 import * as iam from "aws-cdk-lib/aws-iam"
-import * as logs from "aws-cdk-lib/aws-logs"
-import * as events from "aws-cdk-lib/aws-events"
-import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import type { Construct } from "constructs"
 import {Stack} from "aws-cdk-lib";
 import * as s3deploy from "aws-cdk-lib/aws-s3-deployment";
 import * as path from "node:path";
 
-export class LogProcessingStack extends Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props)
+interface ProcessingAndEnrichmentStackProps extends cdk.StackProps {
+  rawLogsBucket: s3.Bucket;
+}
 
-    // S3 Buckets for different stages
-    const rawLogsBucket = new s3.Bucket(this, "RawLogsBucket", {
-      bucketName: `${this.stackName.toLowerCase()}-raw-logs`,
-      autoDeleteObjects: true,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-      encryption: s3.BucketEncryption.S3_MANAGED,
-      lifecycleRules: [
-        {
-          id: "raw-logs-lifecycle",
-          enabled: true,
-          transitions: [
-            {
-              storageClass: s3.StorageClass.INFREQUENT_ACCESS,
-              transitionAfter: cdk.Duration.days(30),
-            }
-          ],
-          expiration: cdk.Duration.days(365),
-        },
-      ],
-    })
+export class ProcessingAndEnrichmentStack extends Stack {
+  constructor(scope: Construct, id: string, props: ProcessingAndEnrichmentStackProps) {
+    super(scope, id, props)
 
     const processedBucket = new s3.Bucket(this, "ProcessedBucket", {
       bucketName: `${this.stackName.toLowerCase()}-processed-logs`,
@@ -80,47 +55,6 @@ export class LogProcessingStack extends Stack {
         },
       ],
     })
-
-    // Kinesis Data Firehose for log ingestion
-    const firehoseRole = new iam.Role(this, "FirehoseRole", {
-      assumedBy: new iam.ServicePrincipal("firehose.amazonaws.com"),
-      managedPolicies: [iam.ManagedPolicy.fromAwsManagedPolicyName("AmazonS3FullAccess")],
-    })
-
-    const firehoseLogGroup = new logs.LogGroup(this, 'FirehoseLogGroup', {
-      logGroupName: '/aws/kinesisfirehose/log-ingestion',
-      retention: logs.RetentionDays.ONE_MONTH,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-    });
-
-    firehoseRole.addToPolicy(new iam.PolicyStatement({
-      actions: [
-        'logs:PutLogEvents',
-        'logs:CreateLogStream',
-      ],
-      resources: [firehoseLogGroup.logGroupArn],
-    }));
-
-    const logFirehose = new kinesisFirehose.CfnDeliveryStream(this, "LogFirehose", {
-      deliveryStreamName: `${this.stackName.toLowerCase()}-log-ingestion`,
-      deliveryStreamType: "DirectPut",
-      extendedS3DestinationConfiguration: {
-        cloudWatchLoggingOptions: {
-          enabled: true,
-          logGroupName: firehoseLogGroup.logGroupName,
-          logStreamName: 'S3Delivery',
-        },
-        bucketArn: rawLogsBucket.bucketArn,
-        prefix: '!{timestamp:yyyy/MM/dd}/',
-        errorOutputPrefix: "errors/!{firehose:error-output-type}/!{timestamp:yyyy/MM/dd}/",
-        bufferingHints: {
-          sizeInMBs: 128,
-          intervalInSeconds: 300,
-        },
-        compressionFormat: "GZIP",
-        roleArn: firehoseRole.roleArn,
-      },
-    });
 
     const vpc = new ec2.Vpc(this, 'PublicOnlyVPC', {
       maxAzs: 2,
@@ -180,9 +114,10 @@ export class LogProcessingStack extends Stack {
     const jobRole = new iam.Role(this, 'EmrJobRole', {
       assumedBy: new iam.ServicePrincipal('emr-serverless.amazonaws.com'),
     });
-    rawLogsBucket.grantRead(jobRole);
+    props.rawLogsBucket.grantRead(jobRole);
     processedBucket.grantReadWrite(jobRole);
     emrCodeBucket.grantRead(jobRole);
+    enrichedBucket.grantReadWrite(jobRole);
 
     jobRole.addToPolicy(new iam.PolicyStatement({
       actions: [
@@ -194,8 +129,6 @@ export class LogProcessingStack extends Stack {
         "*", // or restrict to specific model ARN if you want tighter security
       ]
     }));
-
-
 
     // EventBridge rule to start the job daily at 02:00 UTC
     // At 200TBs/day it should run every 25 minutes

@@ -1,20 +1,21 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
-import { LogProcessingStack } from '../lib/log-processing-cdk-app-stack';
+import {IngestionStack} from "../lib/ingestion-stack";
+import {ProcessingAndEnrichmentStack} from "../lib/processing-and-enrichment-stack";
 
 const app = new cdk.App();
-new LogProcessingStack(app, 'LogProcessingStack', {
-  /* If you don't specify 'env', this stack will be environment-agnostic.
-   * Account/Region-dependent features and context lookups will not work,
-   * but a single synthesized template can be deployed anywhere. */
 
-  /* Uncomment the next line to specialize this stack for the AWS Account
-   * and Region that are implied by the current CLI configuration. */
-  // env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
+const ingestionStack = new IngestionStack(app, 'IngestionStack', {
+  env: {
+    account: '278838288143',
+    region: 'eu-central-1'
+  },
+});
 
-  /* Uncomment the next line if you know exactly what Account and Region you
-   * want to deploy the stack to. */
-  env: { account: '278838288143', region: 'eu-central-1' },
-
-  /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
+new ProcessingAndEnrichmentStack(app, 'ProcessingAndEnrichmentStack', {
+  rawLogsBucket: ingestionStack.rawLogsBucket,
+  env: {
+    account: '278838288143',
+    region: 'eu-central-1'
+  },
 });
