@@ -3,9 +3,12 @@ import boto3
 import json
 from unittest.mock import Mock, patch
 from pyspark.sql import SparkSession
+from pyspark.sql.types import StructType, StringType, IntegerType
+from pyspark.sql.functions import from_json, col
 from datetime import datetime
 import tempfile
 import os
+import sys
 
 # Import the functions from your main script
 from analyze import (
@@ -197,3 +200,5 @@ def test_full_pipeline_integration(spark, mock_bedrock, sample_template_data):
 
         assert len(results) > 0
         assert all(isinstance(r, dict) for r in results)
+    finally:
+        spark.stop()
